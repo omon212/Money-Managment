@@ -97,17 +97,20 @@ class AllUserPayView(APIView):
             filter_kirim = PayMoney.objects.all().filter(id=int(d),status_money='chiqim')
         serializer = AllUserPaySerializer(filter_kirim,many=True)
         return Response(serializer.data)
-            # userni_puli = 0
-            # for k in filter_kirim:
-            #     print(d,k.total)
-            #     userni_puli+=k.total
-            # fake_database_kirim[d] = userni_puli
+        
 
+import random
+class AddUserFake(APIView):
 
+    def get(self,request):
+        
 
+        for i in range(1,11):
+            for d in range(3):
+                pul = random.randint(1000,10000000)
+                fake_money = PayMoney.objects.create(total = pul,who_id = i,status_money = 'kirim',method_plase = "Taksi",comment  = 'random')
+                fake_money.save()
+        return Response({"msg": "okey"})
 
-        return Response(fake_database_kirim)
-
-
-
+    
 
