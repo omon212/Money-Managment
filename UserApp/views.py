@@ -101,16 +101,15 @@ class AllUserPayView(APIView):
 
 import random
 class AddUserFake(APIView):
-
     def get(self,request):
-        
 
         for i in range(1,11):
             for d in range(3):
+                methodplace = ["Oziq-ovqat","Transport","Kiyim-kechak","Komunal","Axborot-vositalari","Kafe-restoran","Taksi","Xizmatlar"]
+                method = random.choice(methodplace)
+                comment = ["chingiz togo","dostim uchun keta oldik","chingiz uchun padarka oldik"]
+                com = random.choice(comment)
                 pul = random.randint(1000,10000000)
-                fake_money = PayMoney.objects.create(total = pul,who_id = i,status_money = 'kirim',method_plase = "Taksi",comment  = 'random')
+                fake_money = PayMoney.objects.create(total = pul,who_id = i,status_money = 'chiqim',method_plase = method,comment  = com)
                 fake_money.save()
         return Response({"msg": "okey"})
-
-    
-
