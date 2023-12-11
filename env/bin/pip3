@@ -1,4 +1,4 @@
-#!/home/sharifjon/Desktop/PythonCodes/Money-Managment/env/bin/python3
+#!/Users/sharifjonmominov/PycharmProjects/Money-Managment/env/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

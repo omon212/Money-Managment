@@ -19,8 +19,6 @@ class UserRegisterView(APIView):
 
         # saver = User.objects.create(username=username,password=password,email=email)
         # saver.save()
-
-
         serializer = UserSerializer(data=request.data)
 
         if serializer.is_valid():
@@ -41,7 +39,7 @@ class LoginView(APIView):
         if user is None:
             return Response({"message": "Not Found user"})
         else:
-            return Response({"message":"Login Sucsessfuy"})
+            return Response({"message": "Login Sucsessfuy"})
 
 
 class AllUser(APIView):
@@ -83,33 +81,41 @@ class FilterUserMoney(APIView):
 
 
 class AllUserPayView(APIView):
-
     def get(self,request):
-        userlar = User.objects.all()
-        odamlar_royxati = []
+        kirim_filtr = PayMoney.objects.all().filter(status_money="kirim")
+        for i in kirim_filtr:
+            pass
 
-        for i in userlar:
-            odamlar_royxati.append(i.id)
-        fake_database_kirim  = {}
-        print(odamlar_royxati)
-        for d in odamlar_royxati:
-            print(d)
-            filter_kirim = PayMoney.objects.all().filter(id=int(d),status_money='chiqim')
-        serializer = AllUserPaySerializer(filter_kirim,many=True)
-        return Response(serializer.data)
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 import random
-class AddUserFake(APIView):
-    def get(self,request):
-
-        for i in range(1,11):
-            for d in range(3):
-                methodplace = ["Oziq-ovqat","Transport","Kiyim-kechak","Komunal","Axborot-vositalari","Kafe-restoran","Taksi","Xizmatlar"]
-                method = random.choice(methodplace)
-                comment = ["chingiz togo","dostim uchun keta oldik","chingiz uchun padarka oldik"]
-                com = random.choice(comment)
-                pul = random.randint(1000,10000000)
-                fake_money = PayMoney.objects.create(total = pul,who_id = i,status_money = 'chiqim',method_plase = method,comment  = com)
-                fake_money.save()
-        return Response({"msg": "okey"})
+# class AddUserFake(APIView):
+#     def get(self,request):
+#
+#         for i in range(1,11):
+#             for d in range(3):
+#                 methodplace = ["Oziq-ovqat","Transport","Kiyim-kechak","Komunal","Axborot-vositalari","Kafe-restoran","Taksi","Xizmatlar"]
+#                 method = random.choice(methodplace)
+#                 comment = ["chingiz togo","dostim uchun keta oldik","chingiz uchun padarka oldik"]
+#                 com = random.choice(comment)
+#                 pul = random.randint(1000,10000000)
+#                 fake_money = PayMoney.objects.create(total = pul,who_id = i,status_money = 'chiqim',method_plase = method,comment  = com)
+#                 fake_money.save()
+#         return Response({"msg": "okey"})

@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/sharifjon/Desktop/PythonCodes/Money-Managment/env"
+VIRTUAL_ENV="/Users/sharifjonmominov/PycharmProjects/Money-Managment/env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
