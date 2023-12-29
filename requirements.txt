@@ -5,4 +5,6 @@ pytz==2023.3.post1
 sqlparse==0.4.4
 typing_extensions==4.8.0
 drf-yasg
+django-cors-headers==3.10.0
+
 
